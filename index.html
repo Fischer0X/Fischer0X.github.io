@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fischer | Senior Software Engineer</title>
+    <meta name="description" content="Professional portfolio of a Senior Full-Stack Engineer specializing in high-performance systems and security.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        primary: '#3b82f6',
+                        darkBg: '#09090b', // Zinc 950
+                        darkCard: '#18181b', // Zinc 900
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.7s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .gradient-text { background: linear-gradient(to right, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+
+<body class="bg-white text-zinc-900 dark:bg-darkBg dark:text-zinc-100 transition-colors duration-500 font-sans antialiased">
+
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 border-b border-transparent">
+        <div class="container mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="#" class="text-xl font-extrabold tracking-tighter hover:opacity-80 transition-opacity">
+                FISCHER<span class="text-primary">_</span>
+            </a>
+            
+            <div class="hidden md:flex items-center space-x-10 text-sm font-medium tracking-wide uppercase">
+                <a href="#about" class="hover:text-primary transition-colors">About</a>
+                <a href="#projects" class="hover:text-primary transition-colors">Projects</a>
+                <a href="#experience" class="hover:text-primary transition-colors">Experience</a>
+                <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+                <div class="h-4 w-[1px] bg-zinc-200 dark:bg-zinc-800"></div>
+                <button id="theme-toggle" class="p-2 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all">
+                    <i data-lucide="sun" class="hidden dark:block w-5 h-5 text-yellow-400"></i>
+                    <i data-lucide="moon" class="block dark:hidden w-5 h-5"></i>
+                </button>
+            </div>
+
+            <button class="md:hidden p-2" onclick="toggleMenu()">
+                <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-white dark:bg-darkBg border-b border-zinc-200 dark:border-zinc-800 p-6 space-y-4 shadow-xl">
+            <a href="#about" class="block text-lg font-medium" onclick="toggleMenu()">About</a>
+            <a href="#projects" class="block text-lg font-medium" onclick="toggleMenu()">Projects</a>
+            <a href="#experience" class="block text-lg font-medium" onclick="toggleMenu()">Experience</a>
+            <a href="#contact" class="block text-lg font-medium" onclick="toggleMenu()">Contact</a>
+        </div>
+    </nav>
+
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <div class="absolute top-1/4 -left-20 w-96 h-96 bg-primary/20 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px]"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl">
+                <h2 class="font-mono text-primary text-lg mb-6 tracking-widest uppercase reveal">Full-Stack Engineer & Architect</h2>
+                <h1 class="text-6xl md:text-8xl font-extrabold mb-8 leading-[1.1] tracking-tight reveal" style="transition-delay: 100ms;">
+                    Engineering <span class="gradient-text">Scalable</span> <br> Digital Ecosystems.
+                </h1>
+                <p class="text-xl text-zinc-500 dark:text-zinc-400 mb-10 max-w-2xl leading-relaxed reveal" style="transition-delay: 200ms;">
+                    With over half a decade of experience, I specialize in building high-performance systems, low-level optimizations, and secure web architectures. Based in Syria, working globally.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-5 reveal" style="transition-delay: 300ms;">
+                    <a href="#projects" class="px-10 py-4 bg-primary text-white rounded-2xl font-bold hover:bg-blue-600 hover:-translate-y-1 transition-all shadow-xl shadow-primary/20 flex items-center justify-center gap-2">
+                        View Projects <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#contact" class="px-10 py-4 border border-zinc-200 dark:border-zinc-800 rounded-2xl font-bold hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all flex items-center justify-center gap-2">
+                        Let's Talk
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-32 bg-zinc-50 dark:bg-zinc-900/30">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-3 gap-12">
+                <div class="lg:col-span-1">
+                    <h3 class="text-4xl font-bold mb-6">Expertise & <br> Solutions.</h3>
+                    <p class="text-zinc-500 dark:text-zinc-400 leading-relaxed italic">"Simplicity is the ultimate sophistication, but performance is the soul of software."</p>
+                </div>
+                <div class="lg:col-span-2 grid md:grid-cols-2 gap-8">
+                    <div class="p-8 rounded-3xl bg-white dark:bg-darkCard border border-zinc-100 dark:border-zinc-800 reveal">
+                        <i data-lucide="layers" class="text-primary mb-6 w-10 h-10"></i>
+                        <h4 class="text-xl font-bold mb-4 uppercase tracking-tight">System Architecture</h4>
+                        <p class="text-zinc-500 text-sm leading-relaxed">Designing robust backends and efficient APIs that scale seamlessly under heavy load.</p>
+                    </div>
+                    <div class="p-8 rounded-3xl bg-white dark:bg-darkCard border border-zinc-100 dark:border-zinc-800 reveal">
+                        <i data-lucide="shield-check" class="text-primary mb-6 w-10 h-10"></i>
+                        <h4 class="text-xl font-bold mb-4 uppercase tracking-tight">Offensive Security</h4>
+                        <p class="text-zinc-500 text-sm leading-relaxed">Vulnerability research, malware analysis, and building secure-by-design systems.</p>
+                    </div>
+                    <div class="p-8 rounded-3xl bg-white dark:bg-darkCard border border-zinc-100 dark:border-zinc-800 reveal">
+                        <i data-lucide="zap" class="text-primary mb-6 w-10 h-10"></i>
+                        <h4 class="text-xl font-bold mb-4 uppercase tracking-tight">Frontend Excellence</h4>
+                        <p class="text-zinc-500 text-sm leading-relaxed">Crafting pixel-perfect, responsive interfaces with React, Next.js, and modern CSS.</p>
+                    </div>
+                    <div class="p-8 rounded-3xl bg-white dark:bg-darkCard border border-zinc-100 dark:border-zinc-800 reveal">
+                        <i data-lucide="cpu" class="text-primary mb-6 w-10 h-10"></i>
+                        <h4 class="text-xl font-bold mb-4 uppercase tracking-tight">Performance Tuning</h4>
+                        <p class="text-zinc-500 text-sm leading-relaxed">Optimizing low-level code in C/C++ and Zig for maximum execution speed.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-32">
+        <div class="container mx-auto px-6">
+            <h3 class="text-center text-sm font-mono text-zinc-400 uppercase tracking-widest mb-16 underline decoration-primary underline-offset-8">The Tech Stack</h3>
+            <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto reveal">
+                <span class="px-6 py-2 rounded-full border border-zinc-200 dark:border-zinc-800 font-medium hover:border-primary transition-colors cursor-default">C / C++</span>
+                <span class="px-6 py-2 rounded-full border border-zinc-200 dark:border-zinc-800 font-medium hover:border-primary transition-colors cursor-default">Rust / Zig</span>
+                <span class="px-6 py-2 rounded-full border border-zinc-200 dark:border-zinc-800 font-medium hover:border-primary transition-colors cursor-default">React & Next.js</span>
+                <span class="px-6 py-2 rounded-full border border-zinc-200 dark:border-zinc-800 font-medium hover:border-primary transition-colors cursor-default">TypeScript</span>
+                <span class="px-6 py-2 rounded-full border border-zinc-200 dark:border-zinc-800 font-medium hover:border-primary transition-colors cursor-default">Node.js / ASP.NET</span>
+                <span class="px-6 py-2 rounded-full border border-zinc-200 dark:border-zinc-800 font-medium hover:border-primary transition-colors cursor-default">Linux Kernel</span>
+                <span class="px-6 py-2 rounded-full border border-zinc-200 dark:border-zinc-800 font-medium hover:border-primary transition-colors cursor-default">Docker / K8s</span>
+                <span class="px-6 py-2 rounded-full border border-zinc-200 dark:border-zinc-800 font-medium hover:border-primary transition-colors cursor-default">PostgreSQL</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-32">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div>
+                    <h3 class="text-5xl font-extrabold mb-4">Selected Works.</h3>
+                    <p class="text-zinc-500">A collection of projects where code meets business logic.</p>
+                </div>
+                <a href="https://github.com" class="text-primary font-bold flex items-center gap-2 hover:underline">
+                    All Repositories <i data-lucide="github" class="w-5 h-5"></i>
+                </a>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-10">
+                <div class="group relative rounded-3xl bg-zinc-50 dark:bg-darkCard border border-zinc-100 dark:border-zinc-800 overflow-hidden hover:shadow-2xl transition-all reveal">
+                    <div class="h-80 bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center">
+                        <i data-lucide="terminal" class="w-20 h-20 text-zinc-400 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex gap-2 mb-4">
+                            <span class="text-[10px] font-bold uppercase tracking-widest px-3 py-1 bg-primary/10 text-primary rounded-md">C++</span>
+                            <span class="text-[10px] font-bold uppercase tracking-widest px-3 py-1 bg-green-500/10 text-green-500 rounded-md">Security</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-3">Enterprise XSS Guard</h4>
+                        <p class="text-zinc-500 mb-6 line-clamp-2">High-performance security scanner with real-time DOM analysis and EDR evasion detection capabilities.</p>
+                        <div class="flex gap-6">
+                            <a href="#" class="font-bold text-sm flex items-center gap-1 hover:text-primary transition-colors"><i data-lucide="link" class="w-4 h-4"></i> Live Demo</a>
+                            <a href="#" class="font-bold text-sm flex items-center gap-1 hover:text-primary transition-colors"><i data-lucide="github" class="w-4 h-4"></i> Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group relative rounded-3xl bg-zinc-50 dark:bg-darkCard border border-zinc-100 dark:border-zinc-800 overflow-hidden hover:shadow-2xl transition-all reveal" style="transition-delay: 150ms;">
+                    <div class="h-80 bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center">
+                        <i data-lucide="database" class="w-20 h-20 text-zinc-400 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex gap-2 mb-4">
+                            <span class="text-[10px] font-bold uppercase tracking-widest px-3 py-1 bg-primary/10 text-primary rounded-md">React</span>
+                            <span class="text-[10px] font-bold uppercase tracking-widest px-3 py-1 bg-purple-500/10 text-purple-500 rounded-md">Full Stack</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-3">Syria Chess Platform</h4>
+                        <p class="text-zinc-500 mb-6 line-clamp-2">Decentralized chess platform with integrated Stockfish analysis and regional tournament management.</p>
+                        <div class="flex gap-6">
+                            <a href="#" class="font-bold text-sm flex items-center gap-1 hover:text-primary transition-colors"><i data-lucide="link" class="w-4 h-4"></i> Live Demo</a>
+                            <a href="#" class="font-bold text-sm flex items-center gap-1 hover:text-primary transition-colors"><i data-lucide="github" class="w-4 h-4"></i> Source Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-32 bg-zinc-50 dark:bg-zinc-900/30">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h3 class="text-4xl font-extrabold mb-16 text-center">Career Journey.</h3>
+            <div class="space-y-12">
+                <div class="relative pl-10 border-l border-zinc-200 dark:border-zinc-800 reveal">
+                    <div class="absolute -left-[6px] top-0 w-3 h-3 bg-primary rounded-full"></div>
+                    <span class="text-sm font-mono text-primary mb-2 block">2024 — PRESENT</span>
+                    <h4 class="text-xl font-bold">Senior Software Engineer</h4>
+                    <p class="text-zinc-400 mb-4">Global Tech Solutions (Remote)</p>
+                    <p class="text-zinc-500 leading-relaxed text-sm">Leading the migration of legacy C# applications to microservices architecture and optimizing database query performance by 40%.</p>
+                </div>
+                
+                <div class="relative pl-10 border-l border-zinc-200 dark:border-zinc-800 reveal">
+                    <div class="absolute -left-[6px] top-0 w-3 h-3 bg-zinc-300 dark:bg-zinc-700 rounded-full"></div>
+                    <span class="text-sm font-mono text-zinc-400 mb-2 block">2022 — 2024</span>
+                    <h4 class="text-xl font-bold">Backend Developer</h4>
+                    <p class="text-zinc-400 mb-4">Innova Syria</p>
+                    <p class="text-zinc-500 leading-relaxed text-sm">Developed and maintained secure payment gateways and internal ERP systems for enterprise clients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-32 relative overflow-hidden">
+        <div class="container mx-auto px-6 text-center reveal">
+            <h3 class="text-6xl font-extrabold mb-8 tracking-tighter italic">Let's build something <span class="text-primary underline">legendary</span>.</h3>
+            <p class="text-zinc-500 text-xl mb-12 max-w-xl mx-auto italic">Open for collaborations, architectural consultations, or just a coffee chat about low-level computing.</p>
+            
+            <div class="flex flex-wrap justify-center gap-8 mb-20">
+                <a href="mailto:contact@fischer.dev" class="text-2xl font-bold hover:text-primary transition-colors border-b-2 border-zinc-200 dark:border-zinc-800 pb-2">contact@fischer.dev</a>
+            </div>
+            
+            <div class="flex justify-center gap-10">
+                <a href="#" class="hover:text-primary transition-all scale-125"><i data-lucide="github"></i></a>
+                <a href="#" class="hover:text-primary transition-all scale-125"><i data-lucide="linkedin"></i></a>
+                <a href="#" class="hover:text-primary transition-all scale-125"><i data-lucide="twitter"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-zinc-100 dark:border-zinc-900">
+        <div class="container mx-auto px-6 flex flex-col md:row justify-between items-center gap-6">
+            <p class="text-sm text-zinc-500 font-mono tracking-tighter">© 2026 FISCHER_ENGINEERING. ALL RIGHTS RESERVED.</p>
+            <p class="text-sm text-zinc-400">Built with precision in Syria.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Icons Initialization
+        lucide.createIcons();
+
+        // Dark Mode Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
+        });
+
+        // Sticky Nav & Scroll Reveal
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                nav.classList.add('bg-white/80', 'dark:bg-darkBg/80', 'backdrop-blur-xl', 'border-zinc-100', 'dark:border-zinc-900', 'h-16');
+                nav.classList.remove('h-20', 'border-transparent');
+            } else {
+                nav.classList.remove('bg-white/80', 'dark:bg-darkBg/80', 'backdrop-blur-xl', 'border-zinc-100', 'dark:border-zinc-900', 'h-16');
+                nav.classList.add('h-20', 'border-transparent');
+            }
+
+            // Reveal elements on scroll
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const revealTop = el.getBoundingClientRect().top;
+                if (revealTop < windowHeight - 100) el.classList.add('active');
+            });
+        });
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('hidden');
+            const isHidden = menu.classList.contains('hidden');
+            icon.setAttribute('data-lucide', isHidden ? 'menu' : 'x');
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html>
