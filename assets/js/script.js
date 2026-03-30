@@ -5,7 +5,6 @@ lucide.createIcons();
 const themeToggle = document.getElementById('theme-toggle');
 const htmlElement = document.documentElement;
 
-// Check for saved theme
 if (localStorage.getItem('theme') === 'dark' || 
     (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
     htmlElement.classList.add('dark');
@@ -13,11 +12,7 @@ if (localStorage.getItem('theme') === 'dark' ||
 
 themeToggle.addEventListener('click', () => {
     htmlElement.classList.toggle('dark');
-    if (htmlElement.classList.contains('dark')) {
-        localStorage.setItem('theme', 'dark');
-    } else {
-        localStorage.setItem('theme', 'light');
-    }
+    localStorage.setItem('theme', htmlElement.classList.contains('dark') ? 'dark' : 'light');
 });
 
 // --- Sticky Navbar ---
@@ -32,19 +27,36 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// --- Scroll Reveal Animation ---
+// --- Scroll Reveal Animation (Fixed) ---
 const revealElements = document.querySelectorAll('.reveal');
+
 const revealOnScroll = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('active');
+            // بمجرد أن يظهر العنصر، نتوقف عن مراقبته لتحسين الأداء
+            revealOnScroll.unobserve(entry.target);
         }
     });
-}, { threshold: 0.1 });
+}, { 
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px" // يعطي مرونة بسيطة في توقيت الظهور
+});
 
 revealElements.forEach(el => revealOnScroll.observe(el));
 
-// --- Dynamic Projects (Easy to Modify) ---
+// --- Fix: إظهار العناصر الموجودة في أعلى الصفحة فوراً عند التحميل ---
+window.addEventListener('load', () => {
+    revealElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        // إذا كان العنصر داخل حدود الشاشة عند التحميل، أضف كلاس active فوراً
+        if (rect.top < window.innerHeight) {
+            el.classList.add('active');
+        }
+    });
+});
+    
+// --- Dynamic Projects Data ---
 const projects = [
     {
         name: "Security XSS Scanner",
@@ -61,5 +73,3 @@ const projects = [
         github: "#"
     }
 ];
-
-// يمكنك إضافة كود هنا لتوليد البطاقات تلقائياً إذا أردت
