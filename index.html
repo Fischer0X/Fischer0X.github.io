@@ -21,8 +21,8 @@
                     },
                     colors: {
                         primary: '#3b82f6',
-                        darkBg: '#09090b', // Zinc 950
-                        darkCard: '#18181b', // Zinc 900
+                        darkBg: '#09090b', 
+                        darkCard: '#18181b', 
                     }
                 }
             }
@@ -31,13 +31,24 @@
     
     <style>
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.7s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        /* تأثيرات الظهور */
+        .reveal { 
+            opacity: 0; 
+            transform: translateY(30px); 
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out; 
+            will-change: opacity, transform;
+        }
+        .reveal.active { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+        
         .gradient-text { background: linear-gradient(to right, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
 </head>
 
-<body class="bg-white text-zinc-900 dark:bg-darkBg dark:text-zinc-100 transition-colors duration-500 font-sans antialiased">
+<body class="bg-white text-zinc-900 dark:bg-darkBg dark:text-zinc-100 transition-colors duration-500 font-sans antialiased overflow-x-hidden">
 
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 border-b border-transparent">
         <div class="container mx-auto px-6 h-20 flex justify-between items-center">
@@ -98,7 +109,7 @@
     <section id="about" class="py-32 bg-zinc-50 dark:bg-zinc-900/30">
         <div class="container mx-auto px-6">
             <div class="grid lg:grid-cols-3 gap-12">
-                <div class="lg:col-span-1">
+                <div class="lg:col-span-1 reveal">
                     <h3 class="text-4xl font-bold mb-6">Expertise & <br> Solutions.</h3>
                     <p class="text-zinc-500 dark:text-zinc-400 leading-relaxed italic">"Simplicity is the ultimate sophistication, but performance is the soul of software."</p>
                 </div>
@@ -108,17 +119,17 @@
                         <h4 class="text-xl font-bold mb-4 uppercase tracking-tight">System Architecture</h4>
                         <p class="text-zinc-500 text-sm leading-relaxed">Designing robust backends and efficient APIs that scale seamlessly under heavy load.</p>
                     </div>
-                    <div class="p-8 rounded-3xl bg-white dark:bg-darkCard border border-zinc-100 dark:border-zinc-800 reveal">
+                    <div class="p-8 rounded-3xl bg-white dark:bg-darkCard border border-zinc-100 dark:border-zinc-800 reveal" style="transition-delay: 100ms;">
                         <i data-lucide="shield-check" class="text-primary mb-6 w-10 h-10"></i>
                         <h4 class="text-xl font-bold mb-4 uppercase tracking-tight">Offensive Security</h4>
                         <p class="text-zinc-500 text-sm leading-relaxed">Vulnerability research, malware analysis, and building secure-by-design systems.</p>
                     </div>
-                    <div class="p-8 rounded-3xl bg-white dark:bg-darkCard border border-zinc-100 dark:border-zinc-800 reveal">
+                    <div class="p-8 rounded-3xl bg-white dark:bg-darkCard border border-zinc-100 dark:border-zinc-800 reveal" style="transition-delay: 200ms;">
                         <i data-lucide="zap" class="text-primary mb-6 w-10 h-10"></i>
                         <h4 class="text-xl font-bold mb-4 uppercase tracking-tight">Frontend Excellence</h4>
                         <p class="text-zinc-500 text-sm leading-relaxed">Crafting pixel-perfect, responsive interfaces with React, Next.js, and modern CSS.</p>
                     </div>
-                    <div class="p-8 rounded-3xl bg-white dark:bg-darkCard border border-zinc-100 dark:border-zinc-800 reveal">
+                    <div class="p-8 rounded-3xl bg-white dark:bg-darkCard border border-zinc-100 dark:border-zinc-800 reveal" style="transition-delay: 300ms;">
                         <i data-lucide="cpu" class="text-primary mb-6 w-10 h-10"></i>
                         <h4 class="text-xl font-bold mb-4 uppercase tracking-tight">Performance Tuning</h4>
                         <p class="text-zinc-500 text-sm leading-relaxed">Optimizing low-level code in C/C++ and Zig for maximum execution speed.</p>
@@ -130,7 +141,7 @@
 
     <section id="skills" class="py-32">
         <div class="container mx-auto px-6">
-            <h3 class="text-center text-sm font-mono text-zinc-400 uppercase tracking-widest mb-16 underline decoration-primary underline-offset-8">The Tech Stack</h3>
+            <h3 class="text-center text-sm font-mono text-zinc-400 uppercase tracking-widest mb-16 underline decoration-primary underline-offset-8 reveal">The Tech Stack</h3>
             <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto reveal">
                 <span class="px-6 py-2 rounded-full border border-zinc-200 dark:border-zinc-800 font-medium hover:border-primary transition-colors cursor-default">C / C++</span>
                 <span class="px-6 py-2 rounded-full border border-zinc-200 dark:border-zinc-800 font-medium hover:border-primary transition-colors cursor-default">Rust / Zig</span>
@@ -144,20 +155,20 @@
         </div>
     </section>
 
-    <section id="projects" class="py-32">
+    <section id="projects" class="py-32 bg-zinc-50 dark:bg-zinc-900/30">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 reveal">
                 <div>
                     <h3 class="text-5xl font-extrabold mb-4">Selected Works.</h3>
                     <p class="text-zinc-500">A collection of projects where code meets business logic.</p>
                 </div>
-                <a href="https://github.com" class="text-primary font-bold flex items-center gap-2 hover:underline">
+                <a href="https://github.com/Fischer0X" target="_blank" class="text-primary font-bold flex items-center gap-2 hover:underline">
                     All Repositories <i data-lucide="github" class="w-5 h-5"></i>
                 </a>
             </div>
             
             <div class="grid lg:grid-cols-2 gap-10">
-                <div class="group relative rounded-3xl bg-zinc-50 dark:bg-darkCard border border-zinc-100 dark:border-zinc-800 overflow-hidden hover:shadow-2xl transition-all reveal">
+                <div class="group relative rounded-3xl bg-white dark:bg-darkCard border border-zinc-100 dark:border-zinc-800 overflow-hidden hover:shadow-2xl transition-all reveal">
                     <div class="h-80 bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center">
                         <i data-lucide="terminal" class="w-20 h-20 text-zinc-400 group-hover:scale-110 transition-transform"></i>
                     </div>
@@ -175,7 +186,7 @@
                     </div>
                 </div>
                 
-                <div class="group relative rounded-3xl bg-zinc-50 dark:bg-darkCard border border-zinc-100 dark:border-zinc-800 overflow-hidden hover:shadow-2xl transition-all reveal" style="transition-delay: 150ms;">
+                <div class="group relative rounded-3xl bg-white dark:bg-darkCard border border-zinc-100 dark:border-zinc-800 overflow-hidden hover:shadow-2xl transition-all reveal" style="transition-delay: 150ms;">
                     <div class="h-80 bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center">
                         <i data-lucide="database" class="w-20 h-20 text-zinc-400 group-hover:scale-110 transition-transform"></i>
                     </div>
@@ -196,9 +207,9 @@
         </div>
     </section>
 
-    <section id="experience" class="py-32 bg-zinc-50 dark:bg-zinc-900/30">
+    <section id="experience" class="py-32">
         <div class="container mx-auto px-6 max-w-4xl">
-            <h3 class="text-4xl font-extrabold mb-16 text-center">Career Journey.</h3>
+            <h3 class="text-4xl font-extrabold mb-16 text-center reveal">Career Journey.</h3>
             <div class="space-y-12">
                 <div class="relative pl-10 border-l border-zinc-200 dark:border-zinc-800 reveal">
                     <div class="absolute -left-[6px] top-0 w-3 h-3 bg-primary rounded-full"></div>
@@ -219,7 +230,7 @@
         </div>
     </section>
 
-    <section id="contact" class="py-32 relative overflow-hidden">
+    <section id="contact" class="py-32 bg-zinc-50 dark:bg-zinc-900/30 relative overflow-hidden">
         <div class="container mx-auto px-6 text-center reveal">
             <h3 class="text-6xl font-extrabold mb-8 tracking-tighter italic">Let's build something <span class="text-primary underline">legendary</span>.</h3>
             <p class="text-zinc-500 text-xl mb-12 max-w-xl mx-auto italic">Open for collaborations, architectural consultations, or just a coffee chat about low-level computing.</p>
@@ -229,7 +240,7 @@
             </div>
             
             <div class="flex justify-center gap-10">
-                <a href="#" class="hover:text-primary transition-all scale-125"><i data-lucide="github"></i></a>
+                <a href="https://github.com/Fischer0X" target="_blank" class="hover:text-primary transition-all scale-125"><i data-lucide="github"></i></a>
                 <a href="#" class="hover:text-primary transition-all scale-125"><i data-lucide="linkedin"></i></a>
                 <a href="#" class="hover:text-primary transition-all scale-125"><i data-lucide="twitter"></i></a>
             </div>
@@ -244,10 +255,10 @@
     </footer>
 
     <script>
-        // Icons Initialization
+        // 1. Initialize Icons
         lucide.createIcons();
 
-        // Dark Mode Logic
+        // 2. Dark Mode Logic
         const themeToggle = document.getElementById('theme-toggle');
         const html = document.documentElement;
 
@@ -260,45 +271,44 @@
             localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
         });
 
-        // 1. استخراج منطق الإظهار (Reveal) في دالة منفصلة
-        function handleReveal() {
-            const reveals = document.querySelectorAll('.reveal');
-            const windowHeight = window.innerHeight;
-            
-            reveals.forEach(el => {
-                const revealTop = el.getBoundingClientRect().top;
-                // تم تقليل المسافة إلى 50 بكسل لضمان إظهار العناصر العلوية بشكل أفضل
-                if (revealTop < windowHeight - 50) {
-                    el.classList.add('active');
-                }
-            });
-        }
-
-        // 2. استخراج منطق شريط التنقل (Navbar) في دالة منفصلة
-        function handleNavbar() {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 100) {
+        // 3. Navbar Sticky Logic
+        const nav = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
                 nav.classList.add('bg-white/80', 'dark:bg-darkBg/80', 'backdrop-blur-xl', 'border-zinc-100', 'dark:border-zinc-900', 'h-16');
                 nav.classList.remove('h-20', 'border-transparent');
             } else {
                 nav.classList.remove('bg-white/80', 'dark:bg-darkBg/80', 'backdrop-blur-xl', 'border-zinc-100', 'dark:border-zinc-900', 'h-16');
                 nav.classList.add('h-20', 'border-transparent');
             }
-        }
-
-        // 3. ربط الدوال بحدث التمرير
-        window.addEventListener('scroll', () => {
-            handleNavbar();
-            handleReveal();
         });
 
-        // 4. استدعاء الدوال فور تحميل الصفحة لإظهار العناصر الأولية (Hero Section)
-        window.addEventListener('DOMContentLoaded', () => {
-            handleNavbar();
-            handleReveal();
+        // 4. The Professional Fix: Intersection Observer API for Scroll Reveal
+        // هذه هي الطريقة الأقوى هندسياً ولن تخفي عناصرك أبداً
+        document.addEventListener("DOMContentLoaded", () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -50px 0px', // يضمن تشغيل الحركة قبل نهاية الشاشة بقليل
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    // إذا ظهر العنصر في الشاشة
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // إيقاف المراقبة بعد الظهور للحفاظ على الأداء
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // تطبيق الـ Observer على كل عنصر يحمل كلاس reveal
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach(el => observer.observe(el));
         });
 
-        // Mobile Menu Toggle
+        // 5. Mobile Menu Toggle
         function toggleMenu() {
             const menu = document.getElementById('mobile-menu');
             const icon = document.getElementById('menu-icon');
